@@ -16,12 +16,12 @@
 #include <string>
 
 int main() {
-  const auto game_config = space_shooter::GameConfig{
+  const auto game_config = space_shooter::GameConfig {
       .title = "Space Shooter",
       .window_width = 800,
       .window_height = 600,
       .assets_path = space_shooter::SPS_PATH_TO_ASSETS,
-      .frame_rate = space_shooter::FrameRate::VERTICAL_SYNC //
+      .frame_rate = space_shooter::FrameRate::VERTICAL_SYNC
   };
 
   auto manager = space_shooter::ecs::Manager(game_config);

@@ -21,7 +21,7 @@ void InputSystem::update(const sf::Time &delta_time,
   for (auto e : entities) {
     assert(hasRequiredComponents(*e));
 
-    // auto &input = e->get<InputComponent>();
+    InputComponent &input = e->get<InputComponent>();
 
     // TODO : reset detected input from keyboard (put all value of component to
     // false)

@@ -43,8 +43,8 @@ void Manager::update(const sf::Time &delta_time) {
                 [](const auto &entity) { return !entity->isAlive(); });
 }
 
-std::vector<Entity *> Manager::filterEntitiesForSystem(System *system) {
-  std::vector<Entity *> relevant_entities;
+std::vector<Entity*> Manager::filterEntitiesForSystem(System *system) {
+  std::vector<Entity*> relevant_entities;
 
   const auto &requirements = system->getRequiredComponents();
   for (auto &entity : entities_) {
