@@ -1,0 +1,19 @@
+#pragma once
+
+#include <string_view>
+
+namespace space_shooter {
+
+using namespace std::literals::string_view_literals;
+
+// clang-format off
+  inline constexpr unsigned int     SPS_VERSION_MAJOR  = @PROJECT_VERSION_MAJOR@;
+  inline constexpr unsigned int     SPS_VERSION_MINOR  = @PROJECT_VERSION_MINOR@;
+  inline constexpr unsigned int     SPS_VERSION_PATCH  = @PROJECT_VERSION_PATCH@;
+  inline constexpr unsigned int     SPS_VERSION_TWEAK  = @PROJECT_VERSION_TWEAK@;
+  inline constexpr std::string_view SPS_VERSION        = "@PROJECT_VERSION@"sv;
+  inline constexpr std::string_view SPS_AUTHORS        = "@PROJECT_AUTHORS@"sv;
+  inline constexpr std::string_view SPS_PATH_TO_ASSETS = "@PROJECT_ASSETS_PATH@"sv;
+// clang-format on
+
+} // namespace space_shooter

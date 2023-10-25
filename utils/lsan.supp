@@ -1,0 +1,3 @@
+leak:_XimOpenIM
+leak:__interceptor_calloc
+leak:libX11
