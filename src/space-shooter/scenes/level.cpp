@@ -14,10 +14,15 @@ namespace space_shooter {
   
 		std::cout << "Init level." << std::endl;
 
-		std::filesystem::path path = "";
+		std::filesystem::path player_path = "C:\\Users\\HP\\Documents\\ESIEE\\Courses\\cpp\\Project\\Projet_Cpp_E4\\assets\\textures\\player.png";
+		std::filesystem::path bg_path     = "C:\\Users\\HP\\Documents\\ESIEE\\Courses\\cpp\\Project\\Projet_Cpp_E4\\assets\\textures\\test.png"; 
 
-		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), path, sf::Vector2f(1.f, 1.f));
+		//const std::filesystem::path& texture_path, int window_width, int window_height
+		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), player_path, sf::Vector2f(1.f, 1.f));
+		manager.registerEntity<ecs::BackgroundEntity>(bg_path, (int)manager.gameState().width, (int)manager.gameState().height);
 		manager.registerSystem<ecs::RenderingSystem>();
+		manager.registerSystem<ecs::InputSystem>();
+		manager.registerSystem<ecs::MovementSystem>();
 		//manager.gameState().switch_to_scene = GameState::Scene::Score;
 	}
 }
