@@ -22,7 +22,7 @@ void RenderingSystem::update(const sf::Time & /*delta_time*/,
                              Manager &manager) {
   for (auto e : entities) {
     assert(hasRequiredComponents(*e));
-
+    std::cout << "Ship update." << std::endl;
     // const auto &pos = e->get<PositionComponent>();
     // const auto &spr = e->get<SpriteComponent>();
     // auto &tex = e->get<TextureComponent>();
