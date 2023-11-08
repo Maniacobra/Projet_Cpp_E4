@@ -19,7 +19,7 @@ std::unique_ptr<GameState> initGameState(const GameConfig &game_config) {
       .rendering_window = initRenderingWindow(
           game_config.title, game_config.window_width,
           game_config.window_height, game_config.frame_rate),
-      .switch_to_scene = GameState::Scene::Level,
+      .switch_to_scene = GameState::Scene::Menu,
       .running = true,
       .keep_entities = false,
       .keep_systems = false //
