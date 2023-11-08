@@ -13,9 +13,9 @@ namespace space_shooter {
 	void initLevel(ecs::Manager &manager) {
   
 		std::cout << "Init level." << std::endl;
-
-		std::filesystem::path player_path = "C:\\Users\\HP\\Documents\\ESIEE\\Courses\\cpp\\Project\\Projet_Cpp_E4\\assets\\textures\\player.png";
-		std::filesystem::path bg_path     = "C:\\Users\\HP\\Documents\\ESIEE\\Courses\\cpp\\Project\\Projet_Cpp_E4\\assets\\textures\\test.png"; 
+		//TODO: Make see make set direcltly project path to look at 
+		std::filesystem::path player_path = "..\\..\\..\\assets\\textures\\player.png";
+		std::filesystem::path bg_path     = "..\\..\\..\\assets\\textures\\test.png"; 
 
 		//const std::filesystem::path& texture_path, int window_width, int window_height
 		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), player_path, sf::Vector2f(1.f, 1.f));
