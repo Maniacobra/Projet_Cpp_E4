@@ -34,8 +34,10 @@ set(SOURCE_FILES
     src/space-shooter/main.cpp
     src/space-shooter/utils.cpp
     src/space-shooter/game_state.cpp
+    # Scenes
     src/space-shooter/scenes/exit.cpp
     src/space-shooter/scenes/level.cpp
+    src/space-shooter/scenes/menu.cpp
     # Core of ECS
     src/space-shooter/ecs/entity.cpp
     src/space-shooter/ecs/system.cpp
@@ -43,10 +45,12 @@ set(SOURCE_FILES
     # Entities
     src/space-shooter/ecs/entites/background.cpp
     src/space-shooter/ecs/entites/player_ship.cpp
+    src/space-shooter/ecs/entites/text_entity.cpp
     # Systems
     src/space-shooter/ecs/systems/input_system.cpp
     src/space-shooter/ecs/systems/rendering_system.cpp
     src/space-shooter/ecs/systems/movement_system.cpp
+    src/space-shooter/ecs/systems/wait_key_system.cpp
   )
 
 # Add executable

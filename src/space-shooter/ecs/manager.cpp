@@ -107,9 +107,11 @@ void Manager::triggerSceneChange() {
   case GameState::Scene::Level:
     initLevel(*this);
     break;
-  // TODO
   case GameState::Scene::Exit:
     exitGame(*this);
+    break;
+  case GameState::Scene::Menu:
+    initMenu(*this);
     break;
   default:
     initLevel(*this);
