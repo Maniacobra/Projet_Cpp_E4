@@ -23,13 +23,13 @@ void MovementSystem::update(const sf::Time &delta_time,
   for (auto e : entities) {
     assert(hasRequiredComponents(*e));
 
-    // const auto &vel = e->get<VelocityComponent>();
-    // auto &pos = e->get<PositionComponent>();
-    // const auto &input = e->get<InputComponent>();
-
-    // TODO : update position coordinates depending on which input was triggered
-    // the formula is simple : coord = coord +/- (velocity * deltatime)
-    // the velocity needs to be > 100 to observe any significant change
+    const VelocityComponent& vel    = e->get<VelocityComponent>();
+    const InputComponent&    inp    = e->get<InputComponent>();
+    PositionComponent& pos   = e->get<PositionComponent>();
+    sf::Vector2<int> dir =  sf::Vector2<int>((int)inp.move_right - (int)inp.move_left, - (int)inp.move_top + (int)inp.move_bottom);
+    double n             =  (dir.x + dir.y) != 0 ? sqrt(dir.x * dir.x + dir.y * dir.y) : 1;
+    pos.x               +=  (dir.x * vel.vx * delta_time.asSeconds()) / n;
+    pos.y               +=  dir.y  * vel.vy * delta_time.asSeconds()  / n;
   }
 }
 

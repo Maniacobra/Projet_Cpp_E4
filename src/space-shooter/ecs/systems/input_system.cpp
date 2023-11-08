@@ -21,12 +21,12 @@ namespace space_shooter::ecs {
         for (auto e : entities) {
             assert(hasRequiredComponents(*e));
             space_shooter::ecs::InputComponent& input = e->get<InputComponent>();
-            input.escape = sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
-            input.enter = sf::Keyboard::isKeyPressed(sf::Keyboard::Enter);
+            input.escape      = sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
+            input.enter       = sf::Keyboard::isKeyPressed(sf::Keyboard::Enter);
             input.move_bottom = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
-            input.move_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
-            input.move_top = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
-            input.move_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+            input.move_right  = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+            input.move_top    = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+            input.move_left   = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
             // TODO : reset detected input from keyboard (put all value of component to
             // false)
             // TODO: detect keypressed with SFML and set the boolean state accordingly

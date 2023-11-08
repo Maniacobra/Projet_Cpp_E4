@@ -14,11 +14,11 @@ namespace space_shooter::ecs {
 PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos,
                                    const std::filesystem::path &texture_path,
                                    sf::Vector2f velocity) {
-  add<PositionComponent>(pos.x, pos.y);
-  add<InputComponent>();
-  add<TextureComponent>(texture_path);
-  add<SpriteComponent>(50, 20, SpriteComponent::Resize::Scale);
-  add<VelocityComponent>(velocity.x, velocity.y);
-}
-
+        PositionComponent posC  = add<PositionComponent>(pos.x, pos.y);
+        InputComponent&   inpC  = add<InputComponent>();
+        TextureComponent& tc    = add<TextureComponent>(texture_path);
+        VelocityComponent& velC = add<VelocityComponent>(velocity.x, velocity.y);
+        add<SpriteComponent>((int)tc.texture.getSize().x, (int)tc.texture.getSize().y, SpriteComponent::Resize::Scale);
+        //Init components other values maybe?
+    }
 } // namespace space_shooter::ecs
