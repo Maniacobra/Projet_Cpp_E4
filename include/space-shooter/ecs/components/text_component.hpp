@@ -8,12 +8,12 @@
 
 namespace space_shooter::ecs {
 
-    struct TextComponent : Component {
+struct TextComponent : Component {
         
-        sf::Text text;
+  sf::Text text;
 
-        explicit TextComponent(const std::string content, int fontSize} text(sf::Text(content, sf::Font::loadFromFile(""), fontSize)) {
-        }
-    };
+  TextComponent() = default;
+  TextComponent(const std::string content, int fontSize) : text{sf::Text(content, sf::Font(), fontSize)} {}
+};
 
 } // namespace space_shooter::ecs

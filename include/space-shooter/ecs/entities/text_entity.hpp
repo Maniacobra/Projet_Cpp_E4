@@ -7,11 +7,12 @@
 
 namespace space_shooter::ecs {
 
-    class TextEntity : public Entity {
-    public:
-        TextEntity(sf::Vector2f pos, const string content, int fontSize);
+class TextEntity : public Entity {
+public:
+  TextEntity(float x, float y, const std::string content, int fontSize); // x and y are the center if the text
+  TextEntity() = delete;
 
-        using Entity::Entity;
-    };
+  using Entity::Entity;
+};
 
 } // namespace space_shooter::ecs

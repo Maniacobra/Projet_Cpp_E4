@@ -5,7 +5,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 project(SpaceShooter VERSION 0.1.0.0)
 set(POJECT_AUTHOR "YOUR NAME <YOUR.EMAIL@esiee.fr>")
-set(PROJECT_ASSETS_PATH "./assets")
+set(PROJECT_ASSETS_PATH "./../../../assets")
 
 set(CXX_STANDARD_REQUIRED 20)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
@@ -51,7 +51,7 @@ set(SOURCE_FILES
     src/space-shooter/ecs/systems/rendering_system.cpp
     src/space-shooter/ecs/systems/movement_system.cpp
     src/space-shooter/ecs/systems/wait_key_system.cpp
-  )
+   "src/space-shooter/ecs/systems/text_system.cpp")
 
 # Add executable
 add_executable(space-shooter ${SOURCE_FILES})

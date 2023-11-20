@@ -8,6 +8,14 @@ namespace space_shooter {
 
 	void initMenu(space_shooter::ecs::Manager& manager) {
 		std::cout << "Menu (press E to start)" << std::endl;
+
+		float centerX = manager.gameState().width / 2;
+		float centerY = manager.gameState().height / 2;
+		
+		manager.registerEntity<ecs::TextEntity>(centerX, centerY - 50, "Welcome", 80);
+		manager.registerEntity<ecs::TextEntity>(centerX, centerY + 30, "Press E to start", 40);
+		manager.registerEntity<ecs::TextEntity>(centerX, centerY + 70, "Use keyboard arrows to move", 40);
+		manager.registerSystem<ecs::TextSystem>();
 		manager.registerSystem<ecs::WaitKeySystem>(sf::Keyboard::E, GameState::Scene::Level);
 	}
 }

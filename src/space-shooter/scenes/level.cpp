@@ -18,6 +18,7 @@ namespace space_shooter {
 		//Note:Registration order is the same as rendering order
 		manager.registerEntity<ecs::BackgroundEntity>(bg_path, (int)manager.gameState().width, (int)manager.gameState().height);
 		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10., 10.f), player_path, sf::Vector2f(1000.f, 1000.f));
+
 		manager.registerSystem<ecs::RenderingSystem>();
 		manager.registerSystem<ecs::InputSystem>();
 		manager.registerSystem<ecs::MovementSystem>();
