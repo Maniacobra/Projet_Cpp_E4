@@ -7,9 +7,9 @@
 
 namespace space_shooter::ecs {
 
-    TextEntity::TextEntity(float x, float y, const std::string content, int fontSize) {
+    TextEntity::TextEntity(float x, float y, const std::string content, int fontSize, sf::Color color) {
         add<PositionComponent>(x, y);
-        add<TextComponent>(content, fontSize);
+        add<TextComponent>(content, fontSize, color);
     }
 
 } // namespace space_shooter::ecs

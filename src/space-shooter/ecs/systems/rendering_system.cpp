@@ -29,12 +29,17 @@ void RenderingSystem::update(const sf::Time & /*delta_time*/,
 
     // DONE: load texture (if needed) into the texture component
     // DONE: then set boolean of component to true
-    if (!tex.loaded && tex.texture.loadFromFile(tex.texture_path.string())) 
+    if (!tex.loaded && tex.texture.loadFromFile(tex.texture_path.string())) {
         tex.loaded = 1;
+    }
 
     sf::Sprite sfml_sprite;
     sfml_sprite.setTexture(tex.texture);
     sfml_sprite.setPosition(pos.x, pos.y);
+    if (spr.resize == SpriteComponent::Resize::Scale)
+        sfml_sprite.setScale((float)spr.width / (float)tex.texture.getSize().x, (float)spr.height / (float)tex.texture.getSize().x);
+    else
+        sfml_sprite.setTextureRect(sf::IntRect(0, 0, spr.width, spr.height)); // Crop by the top left corner
     
     manager.gameState().rendering_window->draw(sfml_sprite);
     

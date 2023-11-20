@@ -9,16 +9,18 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
 
+#include <iostream>
+
 namespace space_shooter::ecs {
 
-PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos,
+PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
                                    const std::filesystem::path &texture_path,
                                    sf::Vector2f velocity) {
         PositionComponent posC  = add<PositionComponent>(pos.x, pos.y);
         InputComponent&   inpC  = add<InputComponent>();
         TextureComponent& tc    = add<TextureComponent>(texture_path);
         VelocityComponent& velC = add<VelocityComponent>(velocity.x, velocity.y);
-        add<SpriteComponent>((int)tc.texture.getSize().x, (int)tc.texture.getSize().y, SpriteComponent::Resize::Scale);
+        add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
         //Init components other values maybe?
     }
 } // namespace space_shooter::ecs

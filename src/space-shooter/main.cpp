@@ -18,8 +18,8 @@
 int main() {
   const auto game_config = space_shooter::GameConfig {
       .title = "Space Shooter",
-      .window_width = 800,
-      .window_height = 600,
+      .window_width = 700,
+      .window_height = 800,
       .assets_path = space_shooter::SPS_PATH_TO_ASSETS,
       .frame_rate = space_shooter::FrameRate::VERTICAL_SYNC
   };
