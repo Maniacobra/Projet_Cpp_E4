@@ -7,6 +7,12 @@
 #include <memory>
 #include <unordered_map>
 
+enum class EntityTag {
+    None,
+    Player,
+    Enemy
+};
+
 namespace space_shooter::ecs {
 
 class Entity {
@@ -40,11 +46,15 @@ public:
 
   bool hasComponentWithID(size_t typeID) const;
 
-  bool isAlive() const;
+  bool            isAlive()     const;
+  EntityTag       getTag()      const;
+  void            setTag(EntityTag newTag);
+
   void kill();
 
 private:
-  bool alive_ = true;
+  bool      alive_ = true;
+  EntityTag tag_   = EntityTag::None;
   std::unordered_map<size_t, std::unique_ptr<Component>> components_;
 };
 

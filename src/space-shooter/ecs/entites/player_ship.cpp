@@ -22,7 +22,7 @@ PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
         TextureComponent& tc    = add<TextureComponent>(texture_path);
         add<ControllableComponent>(speed);
         VelocityComponent& velC = add<VelocityComponent>();
-
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
+        setTag(EntityTag::Player);
     }
 } // namespace space_shooter::ecs
