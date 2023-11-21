@@ -17,11 +17,11 @@ namespace space_shooter::ecs {
 PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
                                    const std::filesystem::path &texture_path,
                                    float speed) {
-        PositionComponent posC  = add<PositionComponent>(pos.x, pos.y);
-        InputComponent&   inpC  = add<InputComponent>();
-        TextureComponent& tc    = add<TextureComponent>(texture_path);
+        add<PositionComponent>(pos.x, pos.y);
+        add<InputComponent>();
+        add<TextureComponent>(texture_path);
         add<ControllableComponent>(speed);
-        VelocityComponent& velC = add<VelocityComponent>();
+        add<VelocityComponent>();
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
         setTag(EntityTag::Player);
     }
