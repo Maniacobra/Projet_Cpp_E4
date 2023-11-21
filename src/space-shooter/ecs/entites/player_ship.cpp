@@ -1,8 +1,10 @@
 #include <space-shooter/ecs/entities/player_ship.hpp>
 
+#include <space-shooter/ecs/components/clock_component.hpp>
 #include <space-shooter/ecs/components/controllable_component.hpp>
 #include <space-shooter/ecs/components/input_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
+#include <space-shooter/ecs/components/shooting_component.hpp>
 #include <space-shooter/ecs/components/sprite_component.hpp>
 #include <space-shooter/ecs/components/texture_component.hpp>
 #include <space-shooter/ecs/components/velocity_component.hpp>
@@ -19,9 +21,11 @@ PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
                                    float speed) {
         add<PositionComponent>(pos.x, pos.y);
         add<InputComponent>();
-        add<TextureComponent>(texture_path);
         add<ControllableComponent>(speed);
         add<VelocityComponent>();
+        add<ShootingComponent>(sf::Vector2f(0.f, -1000.f), 10, sf::Color::Red, EntityTag::PlayerMissile);
+        add<ClockComponent>(200);
+        add<TextureComponent>(texture_path);
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
         setTag(EntityTag::Player);
     }

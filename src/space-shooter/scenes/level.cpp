@@ -2,10 +2,6 @@
 
 #include <space-shooter/ecs/ecs.hpp>
 
-// ---
-
-#include <space-shooter/ecs/entities/player_ship.hpp>
-#include <space-shooter/ecs/systems/rendering_system.hpp>
 #include <iostream>
 
 namespace space_shooter {
@@ -19,13 +15,13 @@ namespace space_shooter {
 		manager.registerEntity<ecs::BackgroundEntity>(bg_path, (int)manager.gameState().width, (int)manager.gameState().height);
 		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), 100, 100, player_path, 500.f);
 
-		manager.registerEntity<ecs::MissileEntity>(sf::Vector2f(200.f, 200.f), sf::Vector2f(0.f, -200.f), 30, sf::Color::Red); // Test
-
+		manager.registerSystem<ecs::InputSystem>();
+		manager.registerSystem<ecs::ControllerSystem>();
+		manager.registerSystem<ecs::ShootingSystem>();
+		manager.registerSystem<ecs::MovementSystem>();
+		manager.registerSystem<ecs::ClockSystem>();
 		manager.registerSystem<ecs::OOBSystem>();
 		manager.registerSystem<ecs::RenderingSystem>();
 		manager.registerSystem<ecs::ShapeSystem>();
-		manager.registerSystem<ecs::InputSystem>();
-		manager.registerSystem<ecs::MovementSystem>();
-		manager.registerSystem<ecs::ControllerSystem>();
 	}
 }

@@ -27,6 +27,7 @@ namespace space_shooter::ecs {
             input.move_right  = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
             input.move_top    = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
             input.move_left   = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+            input.shoot       = sf::Keyboard::isKeyPressed(sf::Keyboard::E);
             // TODO : reset detected input from keyboard (put all value of component to
             // false)
             // TODO: detect keypressed with SFML and set the boolean state accordingly

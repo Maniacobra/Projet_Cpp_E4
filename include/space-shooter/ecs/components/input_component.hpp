@@ -14,6 +14,7 @@ struct InputComponent : Component {
   bool shooting = false;
   bool escape = false;
   bool enter = false;
+  bool shoot = false;
 
   InputComponent() = default;
 };

@@ -2,17 +2,11 @@
 
 #include <space-shooter/ecs/component.hpp>
 #include <space-shooter/utils.hpp>
+#include <space-shooter/types.h>
 
 #include <cinttypes>
 #include <memory>
 #include <unordered_map>
-
-//NOTE::Sub Tags like ennemy types are contained within a component
-enum class EntityTag {
-    None,
-    Player,
-    Enemy
-};
 
 namespace space_shooter::ecs {
 
