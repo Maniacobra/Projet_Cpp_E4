@@ -10,4 +10,16 @@ bool Entity::isAlive() const { return alive_; }
 
 void Entity::kill() { alive_ = false; }
 
+EntityTag Entity::getTag() const {
+	return tag_;
+}
+
+void Entity::setTag(EntityTag newTag)  {
+	tag_ = newTag;
+}
+
+
+
+
+
 } // namespace space_shooter::ecs
