@@ -3,6 +3,7 @@
 #include <space-shooter/ecs/components/position_component.hpp>
 #include <space-shooter/ecs/components/velocity_component.hpp>
 #include <space-shooter/ecs/components/shape_component.hpp>
+#include <space-shooter/ecs/components/sprite_component.hpp>
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
@@ -11,10 +12,11 @@
 
 namespace space_shooter::ecs {
 
-MissileEntity::MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, sf::Color color) {
+MissileEntity::MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, int radius, sf::Color color) {
 
     add<PositionComponent>(pos.x, pos.y);
-    add<ShapeComponent>(ShapeComponent::ShapeType::Circle, 15.f, color);
+    add<SpriteComponent>(radius * 2, radius * 2, SpriteComponent::Resize::None, true);
+    add<ShapeComponent>(ShapeComponent::ShapeType::Circle, (float)radius, color);
     add<VelocityComponent>(velocity.x, velocity.y);
 }
 

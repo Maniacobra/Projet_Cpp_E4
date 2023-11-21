@@ -3,7 +3,6 @@
 #include <space-shooter/ecs/components/input_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
 #include <space-shooter/ecs/components/velocity_component.hpp>
-#include <space-shooter/ecs/components/sprite_component.hpp>
 #include <space-shooter/ecs/manager.hpp>
 #include <space-shooter/game_state.hpp>
 #include <space-shooter/utils.hpp>
