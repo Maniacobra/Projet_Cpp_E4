@@ -54,7 +54,7 @@ set(SOURCE_FILES
    "src/space-shooter/ecs/systems/text_system.cpp" "src/space-shooter/ecs/entites/missile.cpp" "src/space-shooter/ecs/systems/controller_system.cpp" "src/space-shooter/ecs/systems/shape_system.cpp")
 
 # Add executable
-add_executable(space-shooter ${SOURCE_FILES})
+add_executable(space-shooter ${SOURCE_FILES} "src/space-shooter/ecs/entites/enemy.cpp")
 set_property(TARGET space-shooter PROPERTY CXX_STANDARD 20)
 
 # Configure file

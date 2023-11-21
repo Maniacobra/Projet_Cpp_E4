@@ -7,6 +7,7 @@
 #include <memory>
 #include <unordered_map>
 
+//NOTE::Sub Tags like ennemy types are contained within a component
 enum class EntityTag {
     None,
     Player,
