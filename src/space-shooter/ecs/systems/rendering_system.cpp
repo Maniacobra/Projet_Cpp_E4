@@ -42,12 +42,6 @@ void RenderingSystem::update(const sf::Time & /*delta_time*/,
         sfml_sprite.setTextureRect(sf::IntRect(0, 0, spr.width, spr.height)); // Crop by the top left corner
     
     manager.gameState().rendering_window->draw(sfml_sprite);
-    
-    // TODO build SFML sprite to render the texture
-    // TODO render the sprite at the correct position via manager -> game state
-    // -> rendering window -> draw
-
-    
   }
 }
 

@@ -10,12 +10,12 @@
 
 namespace space_shooter::ecs {
 
-class PlayerShipEntity : public Entity {
-public:
-  PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY, const std::filesystem::path &texture_path, float speed);
-  PlayerShipEntity() = delete;
+	class MissileEntity : public Entity {
+	public:
+		MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, sf::Color color);
+		MissileEntity() = delete;
 
-  using Entity::Entity;
-};
+		using Entity::Entity;
+	};
 
 } // namespace space_shooter::ecs

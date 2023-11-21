@@ -1,5 +1,6 @@
 #include <space-shooter/ecs/entities/player_ship.hpp>
 
+#include <space-shooter/ecs/components/controllable_component.hpp>
 #include <space-shooter/ecs/components/input_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
 #include <space-shooter/ecs/components/sprite_component.hpp>
@@ -15,12 +16,13 @@ namespace space_shooter::ecs {
 
 PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
                                    const std::filesystem::path &texture_path,
-                                   sf::Vector2f velocity) {
+                                   float speed) {
         PositionComponent posC  = add<PositionComponent>(pos.x, pos.y);
         InputComponent&   inpC  = add<InputComponent>();
         TextureComponent& tc    = add<TextureComponent>(texture_path);
-        VelocityComponent& velC = add<VelocityComponent>(velocity.x, velocity.y);
+        add<ControllableComponent>(speed);
+        VelocityComponent& velC = add<VelocityComponent>();
+
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
-        //Init components other values maybe?
     }
 } // namespace space_shooter::ecs

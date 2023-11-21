@@ -8,11 +8,9 @@
 
 namespace space_shooter::ecs {
 
-class TextSystem : public System {
-    sf::Font mainFont;
-    bool fontsLoaded = false;
+class ShapeSystem : public System {
 public:
-    TextSystem();
+    ShapeSystem();
     void update(const sf::Time& /*delta_time*/, std::vector<Entity*>& entities,
         Manager& manager) override;
 };
