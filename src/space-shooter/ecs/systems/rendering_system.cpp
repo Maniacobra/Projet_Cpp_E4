@@ -38,7 +38,7 @@ void RenderingSystem::update(const sf::Time & /*delta_time*/,
     sfml_sprite.setPosition(pos.x, pos.y);
     if (spr.resize == SpriteComponent::Resize::Scale)
         sfml_sprite.setScale((float)spr.width / (float)tex.texture.getSize().x, (float)spr.height / (float)tex.texture.getSize().x);
-    else
+    else if (spr.resize == SpriteComponent::Resize::None)
         sfml_sprite.setTextureRect(sf::IntRect(0, 0, spr.width, spr.height)); // Crop by the top left corner
     
     manager.gameState().rendering_window->draw(sfml_sprite);

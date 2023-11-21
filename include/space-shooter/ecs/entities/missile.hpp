@@ -12,7 +12,7 @@ namespace space_shooter::ecs {
 
 	class MissileEntity : public Entity {
 	public:
-		MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, sf::Color color);
+		MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, int radius, sf::Color color);
 		MissileEntity() = delete;
 
 		using Entity::Entity;

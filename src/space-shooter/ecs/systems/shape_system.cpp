@@ -26,6 +26,7 @@ void ShapeSystem::update(const sf::Time& /*delta_time*/,
         const auto& shape = e->get<ShapeComponent>();
 
         sf::CircleShape circle(shape.radius);
+        circle.setOrigin(circle.getRadius(), circle.getRadius());
         circle.setPosition(pos.asVec());
         circle.setFillColor(shape.color);
 
