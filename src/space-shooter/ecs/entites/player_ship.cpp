@@ -8,6 +8,8 @@
 #include <space-shooter/ecs/components/sprite_component.hpp>
 #include <space-shooter/ecs/components/texture_component.hpp>
 #include <space-shooter/ecs/components/velocity_component.hpp>
+#include <space-shooter/ecs/components/tag_component.hpp>
+
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
@@ -27,6 +29,6 @@ PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
         add<ClockComponent>(200);
         add<TextureComponent>(texture_path);
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
-        setTag(EntityTag::Player);
+        add<TagComponent>(EntityTag::Player);
     }
 } // namespace space_shooter::ecs

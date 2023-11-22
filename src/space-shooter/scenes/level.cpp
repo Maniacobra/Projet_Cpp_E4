@@ -1,6 +1,6 @@
 #include <space-shooter/scenes/level.hpp>
 
-#include <space-shooter/ecs/ecs.hpp>
+#include <space-shooter/ecs/ecs.hpp>()
 
 #include <iostream>
 
@@ -14,6 +14,7 @@ namespace space_shooter {
 		//Note:Registration order is the same as rendering order
 		manager.registerEntity<ecs::BackgroundEntity>(bg_path, (int)manager.gameState().width, (int)manager.gameState().height);
 		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), 100, 100, player_path, 500.f);
+		manager.registerEntity<ecs::EnemySpawnerEntity>(5000);
 
 		manager.registerSystem<ecs::InputSystem>();
 		manager.registerSystem<ecs::ControllerSystem>();
@@ -23,5 +24,7 @@ namespace space_shooter {
 		manager.registerSystem<ecs::OOBSystem>();
 		manager.registerSystem<ecs::RenderingSystem>();
 		manager.registerSystem<ecs::ShapeSystem>();
+
+		manager.registerSystem<ecs::EnemySpawnSystem>();
 	}
 }

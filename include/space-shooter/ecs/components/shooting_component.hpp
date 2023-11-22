@@ -2,7 +2,7 @@
 
 #include <space-shooter/ecs/component.hpp>
 #include <space-shooter/ecs/entity.hpp>
-#include <space-shooter/types.h>
+#include <space-shooter/ecs/components/tag_component.hpp>
 
 namespace space_shooter::ecs {
 
@@ -12,7 +12,7 @@ struct ShootingComponent : Component {
     int missileSize = 10;
     sf::Color missileColor;
     EntityTag missileTag = EntityTag::None;
-    EntityTag targetTag = EntityTag::None;
+    EntityTag targetTag  = EntityTag::None;
     bool active = false;
 
     ShootingComponent() = default;

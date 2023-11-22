@@ -10,3 +10,4 @@
 #include <space-shooter/ecs/systems/shooting_system.hpp>
 #include <space-shooter/ecs/systems/text_system.hpp>
 #include <space-shooter/ecs/systems/wait_key_system.hpp>
+#include <space-shooter/ecs/systems/enemy_spawn_system.hpp>
