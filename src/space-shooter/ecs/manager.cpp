@@ -113,6 +113,9 @@ void Manager::triggerSceneChange() {
   case GameState::Scene::Menu:
     initMenu(*this);
     break;
+  case GameState::Scene::Score:
+    initScore(*this);
+    break;
   default:
     initLevel(*this);
     break;

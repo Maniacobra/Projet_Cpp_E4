@@ -4,6 +4,7 @@
 #include <space-shooter/ecs/components/input_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
 #include <space-shooter/ecs/components/velocity_component.hpp>
+#include <space-shooter/ecs/components/shooting_component.hpp>
 #include <space-shooter/ecs/components/sprite_component.hpp>
 #include <space-shooter/ecs/manager.hpp>
 #include <space-shooter/game_state.hpp>
@@ -17,7 +18,7 @@ namespace space_shooter::ecs {
 
 ControllerSystem::ControllerSystem()
     : System{
-          type_list<ControllableComponent, VelocityComponent, PositionComponent, InputComponent, SpriteComponent>{}} {}
+          type_list<ControllableComponent, VelocityComponent, PositionComponent, InputComponent, SpriteComponent, ShootingComponent>{}} {}
 
 void ControllerSystem::update(const sf::Time &delta_time,
                             std::vector<Entity *> &entities, Manager &manager) {
@@ -30,6 +31,7 @@ void ControllerSystem::update(const sf::Time &delta_time,
     const InputComponent&    inp    = e->get<InputComponent>();
     PositionComponent& pos   = e->get<PositionComponent>();
     const SpriteComponent& spr = e->get<SpriteComponent>();
+    ShootingComponent& shoot = e->get<ShootingComponent>();
 
     // Change velocity
     sf::Vector2<int> dir =  sf::Vector2<int>((int)inp.move_right - (int)inp.move_left, - (int)inp.move_top + (int)inp.move_bottom);
@@ -46,6 +48,9 @@ void ControllerSystem::update(const sf::Time &delta_time,
         pos.y = 0;
     else if (pos.y + spr.height > manager.gameState().height)
         pos.y = manager.gameState().height - spr.height;
+
+    // Shoot
+    shoot.active = inp.shoot;
     
   }
 }

@@ -1,11 +1,26 @@
 #include <space-shooter/ecs/systems/wait_key_system.hpp>
 
+#include <space-shooter/ecs/components/input_component.hpp>
+#include <space-shooter/ecs/components/key_scene_component.hpp>
+
+#include <cassert>
+#include <iostream>
+
 namespace space_shooter::ecs {
 
-	WaitKeySystem::WaitKeySystem(sf::Keyboard::Key key, GameState::Scene scene) : System(type_list<>{}), key(key), scene(scene) {}
+	WaitKeySystem::WaitKeySystem()
+		: System(type_list<KeySceneComponent, InputComponent>{}) {}
 
 	void WaitKeySystem::update(const sf::Time&, std::vector<Entity*>& entities, Manager& manager) {
-		if (sf::Keyboard::isKeyPressed(key))
-			manager.gameState().switch_to_scene = scene;
+
+		for (auto e : entities) {
+			assert(hasRequiredComponents(*e));
+			const InputComponent& input = e->get<InputComponent>();
+			const KeySceneComponent& keyScene = e->get<KeySceneComponent>();
+
+			if (keyScene.key == KeySceneComponent::KeyEnum::ENTER && input.enter
+				|| keyScene.key == KeySceneComponent::KeyEnum::ESCAPE && input.escape)
+				manager.gameState().switch_to_scene = keyScene.scene;
+		}
 	}
 }
