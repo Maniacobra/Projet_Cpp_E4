@@ -14,7 +14,7 @@ bool System::hasRequiredComponents(const Entity &ent) const {
       return false;
     }
   }
-
+  
   return true;
 }
 

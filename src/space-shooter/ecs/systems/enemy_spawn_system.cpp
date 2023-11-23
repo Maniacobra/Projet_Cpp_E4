@@ -16,18 +16,17 @@ namespace space_shooter::ecs {
     void EnemySpawnSystem::update(const sf::Time& delta_time, std::vector<Entity*>& entities, Manager& manager) {
         for (auto e : entities) {   
             assert(hasRequiredComponents(*e));
-            if (e->get<TagComponent>().type != EntityTag::EnemySpawner)
-                continue;
+            ASSERT_TAG(e, EntityTag::EnemySpawner);
             if (!e->get<ClockComponent>().over) continue;
             //Tick
             //Temporary to limit enemies
-            static int maxNum = 5;
+            static int maxNum = 10;
             static int num    = 0;
             //-----------------------       
             if (num > maxNum)
                 return;
 
-            manager.registerEntity<ecs::EnemyShipEntity>(sf::Vector2f(random(0, manager.gameState().width), 0), 100, 100, 
+            manager.registerEntity<ecs::EnemyShipEntity>(sf::Vector2f(random(0, manager.gameState().width - 100), 0), 100, 100, 
                     manager.gameState().config.path_to_textures / "ship0.png", 100.0f);
             ++num;
         }
