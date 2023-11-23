@@ -12,7 +12,7 @@ namespace space_shooter {
 		manager.registerEntity<ecs::TextEntity>(centerX, centerY - 50, "Welcome", 80, sf::Color::White);
 		manager.registerEntity<ecs::TextEntity>(centerX, centerY + 30, "Press E to start", 40, sf::Color::Yellow);
 		manager.registerEntity<ecs::TextEntity>(centerX, centerY + 70, "Use keyboard arrows to move", 40, sf::Color::Yellow);
-		manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::ENTER, GameState::Scene::Level);
+		manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::Enter, GameState::Scene::Menu);
 
 		manager.registerSystem<ecs::TextSystem>();
 		manager.registerSystem<ecs::WaitKeySystem>();

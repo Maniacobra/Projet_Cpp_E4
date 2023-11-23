@@ -13,7 +13,7 @@ namespace space_shooter {
 		static const std::filesystem::path& bg_path     = manager.gameState().config.path_to_textures / "test.png";
 		//Note:Registration order is the same as rendering order
 		manager.registerEntity<ecs::BackgroundEntity>(bg_path, (int)manager.gameState().width, (int)manager.gameState().height);
-		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), 100, 100, player_path, 500.f);
+		manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(10.f, 10.f), 100, 100, player_path, 500.f, 100);
 		manager.registerEntity<ecs::EnemySpawnerEntity>(5000);
 
 		manager.registerSystem<ecs::InputSystem>();
@@ -24,6 +24,7 @@ namespace space_shooter {
 		manager.registerSystem<ecs::OOBSystem>();
 		manager.registerSystem<ecs::RenderingSystem>();
 		manager.registerSystem<ecs::ShapeSystem>();
+		manager.registerSystem<ecs::HealthBarDisplaySystem>();
 
 		manager.registerSystem<ecs::EnemySpawnSystem>();
 	}

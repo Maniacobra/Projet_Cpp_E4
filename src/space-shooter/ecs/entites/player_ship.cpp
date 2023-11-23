@@ -2,6 +2,7 @@
 
 #include <space-shooter/ecs/components/clock_component.hpp>
 #include <space-shooter/ecs/components/controllable_component.hpp>
+#include <space-shooter/ecs/components/health_component.hpp>
 #include <space-shooter/ecs/components/input_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
 #include <space-shooter/ecs/components/shooting_component.hpp>
@@ -20,13 +21,14 @@ namespace space_shooter::ecs {
 
 PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
                                    const std::filesystem::path &texture_path,
-                                   float speed) {
+                                   float speed, int health) {
         add<PositionComponent>(pos.x, pos.y);
         add<InputComponent>();
         add<ControllableComponent>(speed);
         add<VelocityComponent>();
         add<ShootingComponent>(sf::Vector2f(0.f, -1000.f), 10, sf::Color::Red, EntityTag::PlayerMissile);
         add<ClockComponent>(200);
+        add<HealthComponent>(health);
         add<TextureComponent>(texture_path);
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
         add<TagComponent>(EntityTag::Player);

@@ -7,7 +7,7 @@ namespace space_shooter::ecs {
 
 struct KeySceneComponent : Component {
 
-	enum class KeyEnum {ENTER, ESCAPE};
+	enum class KeyEnum {Enter, Escape};
 	
 	KeyEnum key;
 	GameState::Scene scene;

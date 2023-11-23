@@ -1,6 +1,7 @@
 #pragma once
 
 #include <space-shooter/ecs/components/controllable_component.hpp>
+#include <space-shooter/ecs/components/health_component.hpp>
 #include <space-shooter/ecs/components/input_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
 #include <space-shooter/ecs/components/shape_component.hpp>

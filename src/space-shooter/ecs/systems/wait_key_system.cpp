@@ -18,8 +18,8 @@ namespace space_shooter::ecs {
 			const InputComponent& input = e->get<InputComponent>();
 			const KeySceneComponent& keyScene = e->get<KeySceneComponent>();
 
-			if (keyScene.key == KeySceneComponent::KeyEnum::ENTER && input.enter
-				|| keyScene.key == KeySceneComponent::KeyEnum::ESCAPE && input.escape)
+			if (keyScene.key == KeySceneComponent::KeyEnum::Enter && input.enter
+				|| keyScene.key == KeySceneComponent::KeyEnum::Escape && input.escape)
 				manager.gameState().switch_to_scene = keyScene.scene;
 		}
 	}

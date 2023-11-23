@@ -51,7 +51,7 @@ set(SOURCE_FILES
     src/space-shooter/ecs/systems/rendering_system.cpp
     src/space-shooter/ecs/systems/movement_system.cpp
     src/space-shooter/ecs/systems/wait_key_system.cpp
-   "src/space-shooter/ecs/systems/text_system.cpp" "src/space-shooter/ecs/entites/missile.cpp" "src/space-shooter/ecs/systems/controller_system.cpp" "src/space-shooter/ecs/systems/shape_system.cpp" "src/space-shooter/ecs/systems/oob_system.cpp" "src/space-shooter/ecs/systems/shooting_system.cpp" "src/space-shooter/ecs/systems/clock_system.cpp" "src/space-shooter/scenes/score.cpp"  "src/space-shooter/ecs/entites/wait_key.cpp")
+   "src/space-shooter/ecs/systems/text_system.cpp" "src/space-shooter/ecs/entites/missile.cpp" "src/space-shooter/ecs/systems/controller_system.cpp" "src/space-shooter/ecs/systems/shape_system.cpp" "src/space-shooter/ecs/systems/oob_system.cpp" "src/space-shooter/ecs/systems/shooting_system.cpp" "src/space-shooter/ecs/systems/clock_system.cpp" "src/space-shooter/scenes/score.cpp"  "src/space-shooter/ecs/entites/wait_key.cpp" "src/space-shooter/ecs/systems/health_display_system.cpp")
 
 # Add executable
 add_executable(space-shooter ${SOURCE_FILES}  "src/space-shooter/ecs/entites/enemy_ship.cpp" "src/space-shooter/ecs/entites/enemy_spawner.cpp" "src/space-shooter/ecs/systems/enemy_spawn_system.cpp")

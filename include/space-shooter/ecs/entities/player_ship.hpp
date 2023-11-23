@@ -12,7 +12,7 @@ namespace space_shooter::ecs {
 
 class PlayerShipEntity : public Entity {
 public:
-  PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY, const std::filesystem::path &texture_path, float speed);
+  PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY, const std::filesystem::path &texture_path, float speed, int health);
   PlayerShipEntity() = delete;
 
   using Entity::Entity;
