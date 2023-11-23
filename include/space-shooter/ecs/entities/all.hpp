@@ -7,3 +7,5 @@
 #include <space-shooter/ecs/entities/wait_key.hpp>
 #include <space-shooter/ecs/entities/enemy_ship.hpp>
 #include <space-shooter/ecs/entities/enemy_spawner.hpp>
+#include <space-shooter/ecs/entities/audio_player_entity.hpp>
+
