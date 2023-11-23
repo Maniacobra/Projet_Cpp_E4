@@ -4,6 +4,7 @@
 #include <space-shooter/ecs/components/velocity_component.hpp>
 #include <space-shooter/ecs/components/shape_component.hpp>
 #include <space-shooter/ecs/components/sprite_component.hpp>
+#include <space-shooter/ecs/components/tag_component.hpp>
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>

@@ -7,8 +7,8 @@
 
 namespace space_shooter::ecs {
 
-    WaitKeyEntity::WaitKeyEntity(KeySceneComponent::KeyEnum key, GameState::Scene scene) {
-        add<KeySceneComponent>(key, scene);
+    WaitKeyEntity::WaitKeyEntity(KeySceneComponent::KeyEnum key, GameState::Scene scene, bool keepEntities) {
+        add<KeySceneComponent>(key, scene, keepEntities);
         add<InputComponent>();
     }
 

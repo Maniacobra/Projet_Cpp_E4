@@ -5,6 +5,6 @@
 namespace space_shooter
 {
 
-  void initLevel(space_shooter::ecs::Manager& manager);
+  void initLevel(space_shooter::ecs::Manager& manager, bool resume = false);
 
 }
