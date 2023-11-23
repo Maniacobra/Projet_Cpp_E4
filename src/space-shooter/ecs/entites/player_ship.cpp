@@ -1,15 +1,6 @@
 #include <space-shooter/ecs/entities/player_ship.hpp>
 
-#include <space-shooter/ecs/components/clock_component.hpp>
-#include <space-shooter/ecs/components/controllable_component.hpp>
-#include <space-shooter/ecs/components/health_component.hpp>
-#include <space-shooter/ecs/components/input_component.hpp>
-#include <space-shooter/ecs/components/position_component.hpp>
-#include <space-shooter/ecs/components/shooting_component.hpp>
-#include <space-shooter/ecs/components/sprite_component.hpp>
-#include <space-shooter/ecs/components/texture_component.hpp>
-#include <space-shooter/ecs/components/velocity_component.hpp>
-#include <space-shooter/ecs/components/tag_component.hpp>
+#include <space-shooter/ecs/components/all.hpp>
 
 
 #include <SFML/Graphics/Texture.hpp>
@@ -29,6 +20,7 @@ PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
         add<ShootingComponent>(sf::Vector2f(0.f, -1000.f), 10, sf::Color::Red, EntityTag::PlayerMissile);
         add<ClockComponent>(200);
         add<HealthComponent>(health);
+        add<ColliderComponent>();
         add<TextureComponent>(texture_path);
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
         add<TagComponent>(EntityTag::Player);
