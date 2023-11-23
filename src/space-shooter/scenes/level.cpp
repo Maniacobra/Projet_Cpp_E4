@@ -27,5 +27,6 @@ namespace space_shooter {
 		manager.registerSystem<ecs::HealthBarDisplaySystem>();
 
 		manager.registerSystem<ecs::EnemySpawnSystem>();
+		manager.registerSystem<ecs::EnemyShootingSystem>();
 	}
 }

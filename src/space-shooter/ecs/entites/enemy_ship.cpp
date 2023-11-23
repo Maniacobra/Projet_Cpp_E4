@@ -10,10 +10,10 @@ namespace space_shooter::ecs {
     EnemyShipEntity::EnemyShipEntity(sf::Vector2f pos, int sizeX, int sizeY, const std::filesystem::path& texture_path, float speed) {
         add<PositionComponent>(pos.x, pos.y);
         add<VelocityComponent>();
-        add<ShootingComponent>(sf::Vector2f(0.f, -1000.f), 10, sf::Color::Red, EntityTag::EnemyMissile);
+        add<ShootingComponent>(sf::Vector2f(0.f, 200.0f), 10, sf::Color::Blue, EntityTag::EnemyMissile).active = true; //Always enemy is hooting if not told otherwise
+        add<ClockComponent>(random(1000, 3000));
         add<TextureComponent>(texture_path);
         add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
         add<TagComponent>(EntityTag::Enemy);
     }
-
 };
