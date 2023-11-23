@@ -16,6 +16,14 @@
 //TODO::replace  rect.intersect by custom function
 namespace space_shooter::ecs {
     ColliderSystem::ColliderSystem() : System{ type_list<PositionComponent, SpriteComponent, TagComponent>{} } {}
+
+    bool ColliderSystem::AABB(sf::FloatRect rect0, sf::FloatRect rect1) {
+        bool xx = rect0.getPosition().x < (rect1.getPosition().x + rect1.getSize().x) && rect1.getPosition().x < (rect0.getPosition().x + rect0.getSize().x);
+        bool yy = rect0.getPosition().y < (rect1.getPosition().y + rect1.getSize().y) && rect1.getPosition().y < (rect0.getPosition().y + rect0.getSize().y);
+        return xx && yy;
+    }
+
+
     //Collision is resolved if e1 has e1tag and e2[i] has e2tag ALWAYS E2[i] IS KILLED!
     bool ColliderSystem::ResolveCollision(Entity* e1, std::vector<Entity*>& e2, EntityTag e1tag, EntityTag e2tag) {
         bool ret = false;
@@ -33,7 +41,7 @@ namespace space_shooter::ecs {
             sf::FloatRect rect1(e1pos.x, e1pos.y, e1spr.width, e1spr.height);
             sf::FloatRect rect2(e0pos.x, e0pos.y, e0spr.width, e0spr.height); //Offset of circles shouldnt be computed here
 
-            if (!rect1.intersects(rect2)) continue;
+            if (!AABB(rect1, rect2)) continue;
             std::cout << "Collision by missile with tag: " << (int)e2tag << '\n';
             e0->kill();
             ret = true;
