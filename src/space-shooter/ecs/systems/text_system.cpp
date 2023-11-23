@@ -33,7 +33,8 @@ void TextSystem::update(const sf::Time& /*delta_time*/,
 
         // Update text object position and set font
         text.text.setFont(mainFont);
-        sf::FloatRect bounds = text.text.getGlobalBounds(); // Get the bounds to calculate the center of the text
+        // Get the bounds to calculate the center of the text, or not if cornerPos is true
+        sf::FloatRect bounds = text.cornerPos ? sf::FloatRect() : text.text.getGlobalBounds();
         text.text.setPosition(pos.x - bounds.width / 2, pos.y - bounds.height / 2);
 
         manager.gameState().rendering_window->draw(text.text);

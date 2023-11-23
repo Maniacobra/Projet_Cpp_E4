@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <random>
+#include <iostream>
 
 namespace space_shooter {
 
@@ -33,4 +34,20 @@ int random(int inf, int sup) {
   auto dist = std::uniform_int_distribution<int>(inf, sup);
   return dist(rng);
 }
+
+std::string formatTime(long millis) {
+
+    long total_seconds = millis / 1000;
+    int min = total_seconds / 60;
+    int sec = total_seconds % 60;
+    int ms = (millis % 1000) / 10;
+
+    std::ostringstream formatted_time;
+    formatted_time << std::setw(2) << std::setfill('0') << min << ":"
+        << std::setw(2) << std::setfill('0') << sec << ":"
+        << std::setw(2) << std::setfill('0') << ms;
+
+    return formatted_time.str();
+}
+
 } // namespace space_shooter

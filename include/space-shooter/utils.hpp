@@ -22,4 +22,7 @@ initRenderingWindow(const std::string &title, std::size_t width,
                     std::size_t height, space_shooter::FrameRate frame_rate);
 
 int random(int inf, int sup);
+
+std::string formatTime(long millis);
+
 } // namespace space_shooter

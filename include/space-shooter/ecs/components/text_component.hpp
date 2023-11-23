@@ -11,9 +11,11 @@ namespace space_shooter::ecs {
 struct TextComponent : Component {
         
   sf::Text text;
+  bool cornerPos;
 
   TextComponent() = default;
-  TextComponent(const std::string content, int fontSize, sf::Color color) : text{sf::Text(content, sf::Font(), fontSize)} {
+  TextComponent(const std::string content, int fontSize, sf::Color color, bool cornerPos = false) :
+      text{sf::Text(content, sf::Font(), fontSize)}, cornerPos{cornerPos} {
       text.setColor(color);
   }
 };
