@@ -13,7 +13,6 @@
 #include <iostream>
 #include <string>
 
-//TODO::replace  rect.intersect by custom function
 namespace space_shooter::ecs {
     ColliderSystem::ColliderSystem() : System{ type_list<PositionComponent, SpriteComponent, TagComponent>{} } {}
 
