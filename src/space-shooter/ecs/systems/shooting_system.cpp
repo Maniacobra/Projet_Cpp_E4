@@ -33,7 +33,8 @@ void ShootingSystem::update(const sf::Time& delta_time,
         clk.repeat = shoot.active; // No repeat when key not pressed
 
         if (shoot.active && clk.over)
-            manager.registerEntity<MissileEntity>(sf::Vector2f(pos.x + spr.width / 2, pos.y + spr.height / 2), shoot.velocity, shoot.missileSize, shoot.missileColor);
+            manager.registerEntity<MissileEntity>(sf::Vector2f(pos.x + spr.width / 2, pos.y + spr.height / 2),
+                shoot.velocity, shoot.missileSize, shoot.missileColor, EntityTag::PlayerMissile);
     }
 }
 

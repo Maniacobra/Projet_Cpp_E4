@@ -1,5 +1,6 @@
 #pragma once
 
+#include <space-shooter/ecs/systems/collider_system.hpp>
 #include <space-shooter/ecs/systems/controller_system.hpp>
 #include <space-shooter/ecs/systems/clock_system.hpp>
 #include <space-shooter/ecs/systems/health_display_system.hpp>

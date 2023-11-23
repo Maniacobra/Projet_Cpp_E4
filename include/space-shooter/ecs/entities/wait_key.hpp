@@ -13,7 +13,7 @@ namespace space_shooter::ecs {
 
     class WaitKeyEntity : public Entity {
     public:
-        WaitKeyEntity(KeySceneComponent::KeyEnum key, GameState::Scene scene);
+        WaitKeyEntity(KeySceneComponent::KeyEnum key, GameState::Scene scene, bool keepEntities = false);
         WaitKeyEntity() = delete;
 
         using Entity::Entity;

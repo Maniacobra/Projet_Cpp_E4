@@ -16,11 +16,18 @@ namespace space_shooter::ecs {
 		for (auto e : entities) {
 			assert(hasRequiredComponents(*e));
 			const InputComponent& input = e->get<InputComponent>();
-			const KeySceneComponent& keyScene = e->get<KeySceneComponent>();
+			KeySceneComponent& keyScene = e->get<KeySceneComponent>();
 
 			if (keyScene.key == KeySceneComponent::KeyEnum::Enter && input.enter
-				|| keyScene.key == KeySceneComponent::KeyEnum::Escape && input.escape)
-				manager.gameState().switch_to_scene = keyScene.scene;
+				|| keyScene.key == KeySceneComponent::KeyEnum::Escape && input.escape) {
+				if (keyScene.isReleased) {
+					manager.gameState().switch_to_scene = keyScene.scene;
+					manager.gameState().keep_entities = keyScene.keepEntities;
+					e->kill();
+				}
+			}
+			else
+				keyScene.isReleased = true;
 		}
 	}
 }

@@ -116,6 +116,12 @@ void Manager::triggerSceneChange() {
   case GameState::Scene::Score:
     initScore(*this);
     break;
+  case GameState::Scene::Pause:
+    initPause(*this);
+    break;
+  case GameState::Scene::Resume:
+    initLevel(*this, true);
+    break;
   default:
     initLevel(*this);
     break;

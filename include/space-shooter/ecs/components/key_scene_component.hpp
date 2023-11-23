@@ -9,11 +9,13 @@ struct KeySceneComponent : Component {
 
 	enum class KeyEnum {Enter, Escape};
 	
+	bool isReleased = false;
 	KeyEnum key;
 	GameState::Scene scene;
+	bool keepEntities;
 
 	KeySceneComponent() = default;
-	KeySceneComponent(KeyEnum key, GameState::Scene scene) : key{key}, scene{scene} {}
+	KeySceneComponent(KeyEnum key, GameState::Scene scene, bool keepEntities) : key{key}, scene{scene}, keepEntities{keepEntities} {}
 };
 
 } // namespace space_shooter::ecs
