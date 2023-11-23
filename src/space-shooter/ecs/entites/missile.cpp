@@ -1,11 +1,6 @@
 #include <space-shooter/ecs/entities/missile.hpp>
 
-#include <space-shooter/ecs/components/position_component.hpp>
-#include <space-shooter/ecs/components/velocity_component.hpp>
-#include <space-shooter/ecs/components/shape_component.hpp>
-#include <space-shooter/ecs/components/sprite_component.hpp>
-#include <space-shooter/ecs/components/tag_component.hpp>
-
+#include <space-shooter/ecs/components/all.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
 
@@ -21,6 +16,8 @@ MissileEntity::MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, int radius
     add<VelocityComponent>(velocity.x, velocity.y);
     add<TagComponent>(tag);
 
+    add<ColliderComponent>();
+    add<HealthComponent>(1);
 }
 
 } // namespace space_shooter::ecs

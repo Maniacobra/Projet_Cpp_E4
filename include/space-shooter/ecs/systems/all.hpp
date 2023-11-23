@@ -15,3 +15,4 @@
 #include <space-shooter/ecs/systems/enemy_spawn_system.hpp>
 #include <space-shooter/ecs/systems/enemy_shooting_system.hpp>
 #include <space-shooter/ecs/systems/enemy_controller_system.hpp>
+#include <space-shooter/ecs/systems/health_system.hpp>

@@ -6,8 +6,8 @@ namespace space_shooter::ecs {
 
 struct HealthComponent : Component {
 
-	int health;
-	int maxHealth;
+	int  health;
+	int  maxHealth;
 
 	HealthComponent() = default;
 	HealthComponent(int health) : health{health}, maxHealth{health} {}
