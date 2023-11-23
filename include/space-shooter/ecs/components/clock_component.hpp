@@ -7,13 +7,13 @@ namespace space_shooter::ecs {
 
 struct ClockComponent : Component {
 	
-	arch t = 0.L;
+	arch t;
 	arch duration;
-	arch repeat = true;
-	arch over = false;
+	bool repeat = true;
+	bool over = false;
 
 	ClockComponent() = default;
-	ClockComponent(arch millis) : duration{millis * 1000L} {}
+	ClockComponent(arch millis) : duration{millis * 1000L}, t{millis * 1000L} {}
 };
 
 } // namespace space_shooter::ecs

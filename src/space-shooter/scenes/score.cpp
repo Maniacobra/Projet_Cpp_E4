@@ -11,8 +11,9 @@ namespace space_shooter {
 
 		manager.registerEntity<ecs::TextEntity>(centerX, centerY - 50, "Game Over", 80, sf::Color::White);
 		manager.registerEntity<ecs::TextEntity>(centerX, centerY + 30, "Press Escape to return to main menu", 30, sf::Color::Yellow);
-		manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::Enter, GameState::Scene::Menu);
+		manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::Escape, GameState::Scene::Menu);
 
+		manager.registerSystem<ecs::InputSystem>();
 		manager.registerSystem<ecs::TextSystem>();
 		manager.registerSystem<ecs::WaitKeySystem>();
 	}
