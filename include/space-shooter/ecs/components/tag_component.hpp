@@ -2,7 +2,7 @@
 #include <space-shooter/ecs/component.hpp>
 
 
-#define ASSERT_TAG(entity, tag) if (e->get<TagComponent>().type != tag) continue;
+#define ASSERT_TAG(entity, tag) if (entity->get<TagComponent>().type != tag) continue;
 #define ASSERT_TAG_RET(entity, tag) if (e->get<TagComponent>().type != tag) return;
 
 
