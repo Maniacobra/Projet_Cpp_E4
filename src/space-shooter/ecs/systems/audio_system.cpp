@@ -17,26 +17,28 @@ namespace space_shooter::ecs {
         std::vector<Entity*>& entities, Manager& manager) {
         for (auto e : entities) {
               assert(hasRequiredComponents(*e));
-        //    AudioComponent& au = e->get<AudioComponent>();
-        //    //Create sound and play it
-        //    if (!au.isPlaying) {
-        //        if (!au.sndBuf.loadFromFile(au.path.string())) {
-        //            printf("Can't open sound file.\n");
-        //            e->kill();
-        //            continue;
-        //        }
-        //        else {
-        //            au.snd.setBuffer(au.sndBuf);
-        //            au.snd.play();
-        //            au.isPlaying = true;
-        //        }
-        //    }
-        //    if (au.snd.getStatus() == sf::Sound::Playing) continue;
-        //    //Sound isn't playing: either repeat or delete the entity...
-        //    if (au.repeat) au.snd.play();
-        //    au.isPlaying = false;
-        //    e->kill();
+                AudioComponent& au = e->get<AudioComponent>();
+                //Create sound and play it
+                if (!au.isPlaying) {
+                    if (!au.sndBuf.loadFromFile(au.path.string())) {
+                        printf("Can't open sound file.\n");
+                        e->kill();
+                        continue;
+                    }
+                    else {
+                        au.snd.setBuffer(au.sndBuf);
+                        au.snd.play();
+                        au.isPlaying = true;
+                    }
+                }
+                if (au.snd.getStatus() == sf::Sound::Playing) continue;
+                //Sound isn't playing: either repeat or delete the entity...
+                if (au.repeat) {
+                    au.snd.play();
+                    continue;
+                }
+                au.isPlaying = false;
+                e->kill();
         }
     }
-
 } // namespace space_shooter::ecs
