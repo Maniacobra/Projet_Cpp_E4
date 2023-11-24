@@ -48,7 +48,6 @@ namespace space_shooter {
 		manager.registerSystem<ecs::WaitKeySystem>();
 
 		manager.registerSystem<ecs::EnemySpawnSystem>();
-		manager.registerSystem<ecs::EnemyShootingSystem>();
 		manager.registerSystem<ecs::EnemyControllerSystem>();
 		
         manager.registerSystem<ecs::AudioSystem>();

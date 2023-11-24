@@ -54,7 +54,7 @@ set(SOURCE_FILES
     src/space-shooter/ecs/systems/movement_system.cpp
     src/space-shooter/ecs/systems/wait_key_system.cpp
     src/space-shooter/ecs/systems/collider_system.cpp
-    src/space-shooter/ecs/systems/enemy_shooting_system.cpp
+    
    "src/space-shooter/ecs/systems/text_system.cpp" "src/space-shooter/ecs/entites/missile.cpp" "src/space-shooter/ecs/systems/controller_system.cpp" "src/space-shooter/ecs/systems/shape_system.cpp" "src/space-shooter/ecs/systems/oob_system.cpp" "src/space-shooter/ecs/systems/shooting_system.cpp" "src/space-shooter/ecs/systems/clock_system.cpp" "src/space-shooter/ecs/entites/score_entity.cpp"  "src/space-shooter/ecs/entites/wait_key.cpp" "src/space-shooter/ecs/systems/health_display_system.cpp" "src/space-shooter/ecs/systems/timer_system.cpp" "src/space-shooter/ecs/entites/timer.cpp" "src/space-shooter/ecs/systems/score_system.cpp")
 
 # Add executable

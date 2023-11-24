@@ -12,12 +12,12 @@ struct ShootingComponent : Component {
     int missileSize = 10;
     sf::Color missileColor;
     EntityTag missileTag = EntityTag::None;
-    EntityTag targetTag  = EntityTag::None;
+    bool targetPlayer;
     bool active = false;
 
     ShootingComponent() = default;
-    ShootingComponent(sf::Vector2f velocity, int missileSize, sf::Color missileColor, EntityTag missileTag, EntityTag targetTag = EntityTag::None) :
-        velocity{velocity}, missileSize{missileSize}, missileColor{missileColor}, missileTag{missileTag}, targetTag{targetTag} {}
+    ShootingComponent(sf::Vector2f velocity, int missileSize, sf::Color missileColor, EntityTag missileTag, bool targetPlayer = false) :
+        velocity{velocity}, missileSize{missileSize}, missileColor{missileColor}, missileTag{missileTag}, targetPlayer{targetPlayer} {}
 };
 
 } // namespace space_shooter::ecs

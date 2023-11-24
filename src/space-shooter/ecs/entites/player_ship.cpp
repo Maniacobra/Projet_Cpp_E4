@@ -16,7 +16,7 @@ PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
         add<InputComponent>();
         add<ControllableComponent>(speed);
         add<VelocityComponent>();
-        add<ShootingComponent>(sf::Vector2f(0.f, -1000.f), 10, sf::Color::Red, EntityTag::PlayerMissile);
+        add<ShootingComponent>(sf::Vector2f(0.f, -1000.f), 8, sf::Color::Red, EntityTag::PlayerMissile);
         add<ClockComponent>(200);
         add<ColliderComponent>();
         add<TextureComponent>(texture_path);
