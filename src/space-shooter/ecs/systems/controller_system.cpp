@@ -44,8 +44,8 @@ void ControllerSystem::update(const sf::Time &delta_time,
         pos.x = 0;
     else if (pos.x + spr.width > manager.gameState().width)
         pos.x = manager.gameState().width - spr.width;
-    if (pos.y < 0)
-        pos.y = 0;
+    if (pos.y < manager.gameState().height / 2 + spr.height)
+        pos.y = manager.gameState().height / 2 + spr.height;
     else if (pos.y + spr.height > manager.gameState().height)
         pos.y = manager.gameState().height - spr.height;
 

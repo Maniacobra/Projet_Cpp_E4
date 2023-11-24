@@ -12,11 +12,11 @@ namespace space_shooter {
 
 		if (!resume) {
 			static const std::filesystem::path& player_path = manager.gameState().config.path_to_textures / "player.png";
-			static const std::filesystem::path& bg_path = manager.gameState().config.path_to_textures / "bg.png";
+			static const std::filesystem::path& bg_path	    = manager.gameState().config.path_to_textures / "bg.png";
 			
 			manager.registerEntity<ecs::BackgroundEntity>(bg_path, (int)manager.gameState().width, (int)manager.gameState().height);
 			manager.registerEntity<ecs::PlayerShipEntity>(sf::Vector2f(manager.gameState().width / 2, manager.gameState().height - 100), 100, 100, player_path, 500.f, 5);
-			manager.registerEntity<ecs::EnemySpawnerEntity>(5000);
+			manager.registerEntity<ecs::EnemySpawnerEntity>(1000);
 			manager.registerEntity<ecs::AudioPlayerEntity>(manager.gameState().config.path_to_audio / "NightRide.wav", true);
 			manager.registerEntity<ecs::TimerEntity>(60000);
 			manager.registerEntity<ecs::ScoreEntity>();
