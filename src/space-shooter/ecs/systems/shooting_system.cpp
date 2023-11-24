@@ -30,6 +30,8 @@ void ShootingSystem::update(const sf::Time& delta_time,
         const SpriteComponent& spr     = e->get<SpriteComponent>();
         ClockComponent& clk            = e->get<ClockComponent>();
 
+        if (clk.repeat != shoot.active)
+            clk.t = clk.duration; // Reset clock
         clk.repeat = shoot.active; // No repeat when key not pressed
 
         if (shoot.active && clk.over)

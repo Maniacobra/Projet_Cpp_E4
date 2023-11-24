@@ -29,7 +29,6 @@ namespace space_shooter::ecs {
             health.health              = fmax(0, health.health - fmin(col.hit, col.maxHitInOneFrame));
 
             if (health.health <= 0) {
-                manager.registerEntity<ecs::AudioPlayerEntity>(manager.gameState().config.path_to_audio / "Death.wav", false); //Not best place to do this
                 e->kill();
 
                 switch (tag.type)
@@ -41,17 +40,13 @@ namespace space_shooter::ecs {
                 case EntityTag::Enemy:
                     manager.sendToEntity<ScoreEntity>(
                         [](ScoreEntity& scoreEnt) {
-                            scoreEnt.addScore(10); return NULL;
+                            scoreEnt.addScore(10);
                         } // Increase score +10
                     );
                     break;
                 case EntityTag::PlayerMissile:
                 case EntityTag::EnemyMissile:
-                    manager.sendToEntity<ScoreEntity>(
-                        [](ScoreEntity& scoreEnt) {
-                            scoreEnt.addScore(10); return NULL;
-                        } // Increase score +10
-                    );
+                    manager.registerEntity<ecs::AudioPlayerEntity>(manager.gameState().config.path_to_audio / "Death.wav", false); //Not best place to do this
                 }
             }
 
