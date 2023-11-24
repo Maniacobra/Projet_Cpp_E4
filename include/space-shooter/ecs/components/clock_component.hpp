@@ -9,11 +9,11 @@ struct ClockComponent : Component {
 	
 	arch t;
 	arch duration;
-	bool repeat = true;
+	bool repeat;
 	bool over = false;
 
 	ClockComponent() = default;
-	ClockComponent(arch millis) : duration{millis * 1000L}, t{millis * 1000L} {}
+	ClockComponent(arch millis, bool repeat = true) : duration{millis * 1000L}, t{millis * 1000L}, repeat{repeat} {}
 };
 
 } // namespace space_shooter::ecs

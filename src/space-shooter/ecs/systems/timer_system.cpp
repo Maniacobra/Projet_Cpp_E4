@@ -5,6 +5,7 @@
 #include <space-shooter/ecs/manager.hpp>
 #include <space-shooter/game_state.hpp>
 #include <space-shooter/utils.hpp>
+#include <space-shooter/game_state.hpp>
 
 #include <SFML/Graphics.hpp>
 
@@ -28,6 +29,7 @@ namespace space_shooter::ecs {
 
             if (clk.over) {
                 manager.gameState().switch_to_scene = GameState::Scene::Score;
+                manager.gameState().keep_entities = true;
             }
         }
     }

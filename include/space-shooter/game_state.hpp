@@ -27,7 +27,7 @@ struct GameConfig {
 };
 
 struct GameState {
-  enum class Scene { None, Exit, Menu, Level, Score, Pause, Resume };
+  enum class Scene { None, Exit, Menu, Level, GameOver, Score, Pause, Resume };
 
   Config config;
   std::size_t width;

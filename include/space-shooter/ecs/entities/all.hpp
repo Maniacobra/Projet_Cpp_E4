@@ -9,4 +9,4 @@
 #include <space-shooter/ecs/entities/enemy_ship.hpp>
 #include <space-shooter/ecs/entities/enemy_spawner.hpp>
 #include <space-shooter/ecs/entities/audio_player_entity.hpp>
-
+#include <space-shooter/ecs/entities/score_entity.hpp>

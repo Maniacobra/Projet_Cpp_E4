@@ -14,7 +14,7 @@ namespace space_shooter::ecs {
     TimerEntity::TimerEntity(arch millis) {
         add<PositionComponent>(10.f, 10.f);
         add<TextComponent>("--:--", 40, sf::Color::White, true);
-        add<ClockComponent>(millis);
+        add<ClockComponent>(millis, false);
     }
 
 } // namespace space_shooter::ecs

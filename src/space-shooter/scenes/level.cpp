@@ -19,6 +19,7 @@ namespace space_shooter {
 			manager.registerEntity<ecs::EnemySpawnerEntity>(5000);
 			manager.registerEntity<ecs::AudioPlayerEntity>(manager.gameState().config.path_to_audio / "NightRide.wav", true);
 			manager.registerEntity<ecs::TimerEntity>(60000);
+			manager.registerEntity<ecs::ScoreEntity>();
 		}
 		manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::Escape, GameState::Scene::Pause, true);
 
@@ -29,6 +30,8 @@ namespace space_shooter {
 		manager.registerSystem<ecs::OOBSystem>();
 		manager.registerSystem<ecs::ShootingSystem>();
 		manager.registerSystem<ecs::ColliderSystem>();
+		manager.registerSystem<ecs::HealthSystem>();
+		manager.registerSystem<ecs::ScoreSystem>();
 
 		manager.registerSystem<ecs::ClockSystem>();
 		manager.registerSystem<ecs::RenderingSystem>();
@@ -42,8 +45,6 @@ namespace space_shooter {
 		manager.registerSystem<ecs::EnemyShootingSystem>();
 		manager.registerSystem<ecs::EnemyControllerSystem>();
 		
-		manager.registerSystem<ecs::HealthSystem>();
-
         manager.registerSystem<ecs::AudioSystem>();
 	}
 }

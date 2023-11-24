@@ -1,6 +1,7 @@
 #pragma once
 
 #include <space-shooter/ecs/entity.hpp>
+#include <space-shooter/ecs/components/health_component.hpp>
 #include <space-shooter/ecs/components/position_component.hpp>
 
 #include <SFML/Graphics/Color.hpp>
@@ -12,11 +13,13 @@
 namespace space_shooter::ecs {
 
 class PlayerShipEntity : public Entity {
-  PositionComponent* posCmp;
+  PositionComponent& posCmp;
+  HealthComponent& healthCmp;
 public:
   PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY, const std::filesystem::path &texture_path, float speed, int health);
   PlayerShipEntity() = delete;
-  PositionComponent* getPos();
+  PositionComponent& getPos();
+  HealthComponent& getHealth();
 
   using Entity::Entity;
 };

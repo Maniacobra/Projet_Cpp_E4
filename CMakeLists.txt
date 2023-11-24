@@ -39,6 +39,7 @@ set(SOURCE_FILES
     src/space-shooter/scenes/level.cpp
     src/space-shooter/scenes/menu.cpp
     src/space-shooter/scenes/pause.cpp
+    src/space-shooter/scenes/score.cpp
     # Core of ECS
     src/space-shooter/ecs/entity.cpp
     src/space-shooter/ecs/system.cpp
@@ -54,7 +55,7 @@ set(SOURCE_FILES
     src/space-shooter/ecs/systems/wait_key_system.cpp
     src/space-shooter/ecs/systems/collider_system.cpp
     src/space-shooter/ecs/systems/enemy_shooting_system.cpp
-   "src/space-shooter/ecs/systems/text_system.cpp" "src/space-shooter/ecs/entites/missile.cpp" "src/space-shooter/ecs/systems/controller_system.cpp" "src/space-shooter/ecs/systems/shape_system.cpp" "src/space-shooter/ecs/systems/oob_system.cpp" "src/space-shooter/ecs/systems/shooting_system.cpp" "src/space-shooter/ecs/systems/clock_system.cpp" "src/space-shooter/scenes/score.cpp"  "src/space-shooter/ecs/entites/wait_key.cpp" "src/space-shooter/ecs/systems/health_display_system.cpp" "src/space-shooter/ecs/systems/timer_system.cpp" "src/space-shooter/ecs/entites/timer.cpp")
+   "src/space-shooter/ecs/systems/text_system.cpp" "src/space-shooter/ecs/entites/missile.cpp" "src/space-shooter/ecs/systems/controller_system.cpp" "src/space-shooter/ecs/systems/shape_system.cpp" "src/space-shooter/ecs/systems/oob_system.cpp" "src/space-shooter/ecs/systems/shooting_system.cpp" "src/space-shooter/ecs/systems/clock_system.cpp" "src/space-shooter/ecs/entites/score_entity.cpp"  "src/space-shooter/ecs/entites/wait_key.cpp" "src/space-shooter/ecs/systems/health_display_system.cpp" "src/space-shooter/ecs/systems/timer_system.cpp" "src/space-shooter/ecs/entites/timer.cpp" "src/space-shooter/ecs/systems/score_system.cpp")
 
 # Add executable
 add_executable(space-shooter ${SOURCE_FILES}  "src/space-shooter/ecs/entites/enemy_ship.cpp" "src/space-shooter/ecs/entites/enemy_spawner.cpp" "src/space-shooter/ecs/systems/enemy_spawn_system.cpp" "src/space-shooter/ecs/systems/enemy_controller_system.cpp" "src/space-shooter/ecs/systems/health_system.cpp" "src/space-shooter/ecs/systems/audio_system.cpp" "src/space-shooter/ecs/entites/audio_player_entity.cpp")

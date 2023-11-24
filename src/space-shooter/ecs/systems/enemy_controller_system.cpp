@@ -31,8 +31,8 @@ namespace space_shooter::ecs {
             if (!positionComponent) // PlayerShip non trouvé
                 continue;
 
-            float playerX = (*positionComponent)->x;
-            float playerY = (*positionComponent)->y;
+            float playerX = positionComponent->x;
+            float playerY = positionComponent->y;
 
             if (vel.vy == 0)
                 vel.vy = random(20.0, 100.0f);

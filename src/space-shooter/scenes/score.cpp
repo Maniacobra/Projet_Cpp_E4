@@ -4,17 +4,18 @@
 
 namespace space_shooter {
 
-	void initScore(space_shooter::ecs::Manager& manager) {
+void initScore(space_shooter::ecs::Manager& manager, bool win) {
 
-		float centerX = manager.gameState().width / 2.f;
-		float centerY = manager.gameState().height / 2.f;
+	float centerX = manager.gameState().width / 2.f;
+	float centerY = manager.gameState().height / 2.f;
 
-		manager.registerEntity<ecs::TextEntity>(centerX, centerY - 50, "Game Over", 80, sf::Color::White);
-		manager.registerEntity<ecs::TextEntity>(centerX, centerY + 30, "Press Escape to return to main menu", 30, sf::Color::Yellow);
-		manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::Escape, GameState::Scene::Menu);
+	manager.registerEntity<ecs::TextEntity>(centerX, centerY - 50, win ? "You win" : "Game Over", 80, sf::Color::White);
+	manager.registerEntity<ecs::TextEntity>(centerX, centerY + 30, "Press Escape to return to main menu", 30, sf::Color::Yellow);
+	manager.registerEntity<ecs::WaitKeyEntity>(ecs::KeySceneComponent::KeyEnum::Escape, GameState::Scene::Menu);
 
-		manager.registerSystem<ecs::InputSystem>();
-		manager.registerSystem<ecs::TextSystem>();
-		manager.registerSystem<ecs::WaitKeySystem>();
-	}
+	manager.registerSystem<ecs::InputSystem>();
+	manager.registerSystem<ecs::TextSystem>();
+	manager.registerSystem<ecs::WaitKeySystem>();
+}
+
 }

@@ -7,8 +7,8 @@
 
 namespace space_shooter::ecs {
 	struct AudioComponent : Component {
-		//sf::SoundBuffer sndBuf;
-		//sf::Sound   snd;
+		sf::SoundBuffer sndBuf;
+		sf::Sound   snd;
 		std::filesystem::path path;
 		bool repeat      = true;
 		bool isPlaying   = false;
