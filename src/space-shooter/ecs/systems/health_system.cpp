@@ -4,6 +4,7 @@
 #include <space-shooter/ecs/entities/score_entity.hpp>
 #include <space-shooter/ecs/components/all.hpp>
 #include <space-shooter/ecs/entity.hpp>
+#include <space-shooter/ecs/entities/audio_player_entity.hpp>
 #include <space-shooter/ecs/system.hpp>
 #include <space-shooter/game_state.hpp>
 
@@ -28,20 +29,29 @@ namespace space_shooter::ecs {
             health.health              = fmax(0, health.health - fmin(col.hit, col.maxHitInOneFrame));
 
             if (health.health <= 0) {
+                manager.registerEntity<ecs::AudioPlayerEntity>(manager.gameState().config.path_to_audio / "Death.wav", false); //Not best place to do this
                 e->kill();
 
-                if (tag.type == EntityTag::Player) {
+                switch (tag.type)
+                {
+                case EntityTag::Player:
                     manager.gameState().switch_to_scene = GameState::Scene::GameOver;
                     manager.gameState().keep_entities = true;
-                }
-                else if (tag.type == EntityTag::Enemy) {
-
+                    break;
+                case EntityTag::Enemy:
                     manager.sendToEntity<ScoreEntity>(
                         [](ScoreEntity& scoreEnt) {
                             scoreEnt.addScore(10); return NULL;
                         } // Increase score +10
                     );
-
+                    break;
+                case EntityTag::PlayerMissile:
+                case EntityTag::EnemyMissile:
+                    manager.sendToEntity<ScoreEntity>(
+                        [](ScoreEntity& scoreEnt) {
+                            scoreEnt.addScore(10); return NULL;
+                        } // Increase score +10
+                    );
                 }
             }
 
