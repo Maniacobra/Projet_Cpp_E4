@@ -20,7 +20,7 @@ namespace space_shooter::ecs {
 
 			if (keyScene.key == KeySceneComponent::KeyEnum::Enter && input.enter
 				|| keyScene.key == KeySceneComponent::KeyEnum::Escape && input.escape) {
-				if (keyScene.isReleased) {
+				if (keyScene.isReleased) { // Passes from released to pressed : Prevents instantly triggering when scene starts with the key pressed
 					manager.gameState().switch_to_scene = keyScene.scene;
 					manager.gameState().keep_entities = keyScene.keepEntities;
 					e->kill();

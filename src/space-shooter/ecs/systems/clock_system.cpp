@@ -25,7 +25,7 @@ namespace space_shooter::ecs {
             clk.t -= delta_time.asMicroseconds();
             if (clk.t <= 0) {
                 if (!clk.repeat)
-                    clk.t = 0; // Constantly in over state until repeat is activated
+                    clk.t = 0; // Constantly in "over" state until repeat is activated
                 else
                     clk.t += clk.duration;
                 clk.over = true;

@@ -23,6 +23,7 @@ void TextSystem::update(const sf::Time& /*delta_time*/,
     // Load fonts
     if (!fontsLoaded) {
         mainFont.loadFromFile((manager.gameState().config.path_to_fonts / "Square.ttf").string());
+        // Only one font for now, multiple fonts could be possible
         fontsLoaded = true;
     }
 

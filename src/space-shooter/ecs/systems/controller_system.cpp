@@ -16,6 +16,8 @@
 
 namespace space_shooter::ecs {
 
+    // This system makes the link between inputs and the player actions
+
 ControllerSystem::ControllerSystem()
     : System{
           type_list<ControllableComponent, VelocityComponent, PositionComponent, InputComponent, SpriteComponent, ShootingComponent>{}} {}
@@ -38,16 +40,6 @@ void ControllerSystem::update(const sf::Time &delta_time,
     double n             =  (dir.x + dir.y) != 0 ? sqrt(dir.x * dir.x + dir.y * dir.y) : 1;
     vel.vx = dir.x * ctr.speed / n;
     vel.vy = dir.y * ctr.speed / n;
-
-    // Prevent going beyond borders
-    if (pos.x < 0)
-        pos.x = 0;
-    else if (pos.x + spr.width > manager.gameState().width)
-        pos.x = manager.gameState().width - spr.width;
-    if (pos.y < manager.gameState().height / 2 + spr.height)
-        pos.y = manager.gameState().height / 2 + spr.height;
-    else if (pos.y + spr.height > manager.gameState().height)
-        pos.y = manager.gameState().height - spr.height;
 
     // Shoot
     shoot.active = inp.shoot;

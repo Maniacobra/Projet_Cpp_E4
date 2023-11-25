@@ -29,7 +29,7 @@ namespace space_shooter::ecs {
             if (currentNum > maxNum)
                 return;
             manager.registerEntity<ecs::EnemyShipEntity>(sf::Vector2f(random(0, manager.gameState().width - 100), 0), 100, 100, 
-                 manager.gameState().config.path_to_textures / "ship0.png", 2);
+                 manager.gameState().config.path_to_textures / "ship0.png", 2); // Spawn new enemy
         }
     }
 

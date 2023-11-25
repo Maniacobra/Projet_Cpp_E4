@@ -20,7 +20,7 @@ PlayerShipEntity::PlayerShipEntity(sf::Vector2f pos, int sizeX, int sizeY,
         add<ClockComponent>(200);
         add<ColliderComponent>();
         add<TextureComponent>(texture_path);
-        add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale);
+        add<SpriteComponent>(sizeX, sizeY, SpriteComponent::Resize::Scale, SpriteComponent::OOBAction::Restrict);
         add<TagComponent>(EntityTag::Player);
     }
 

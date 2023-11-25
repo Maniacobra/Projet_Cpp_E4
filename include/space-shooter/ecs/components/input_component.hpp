@@ -6,7 +6,6 @@ namespace space_shooter::ecs {
 
 struct InputComponent : Component {
 
-  // TODO all supported input in the form of boolean here
   bool move_left = false;
   bool move_right = false;
   bool move_top = false;

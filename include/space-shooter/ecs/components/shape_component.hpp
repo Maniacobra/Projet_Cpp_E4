@@ -14,7 +14,7 @@ struct ShapeComponent : Component {
 
 	enum class ShapeType {Circle, Rectangle};
 
-	// TO-DO : Make it support more than just circle
+	// Note : This component only supports circles for now, could be extended
 
 	ShapeType type;
 	float radius;

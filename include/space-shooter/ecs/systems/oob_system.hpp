@@ -6,6 +6,8 @@
 
 namespace space_shooter::ecs {
 
+    // OOB stands for "Out Of Bounds", this system checks what to do when sprites get close the border of the screen or cross past
+
     class OOBSystem : public System {
     public:
         OOBSystem();

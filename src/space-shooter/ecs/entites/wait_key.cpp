@@ -7,6 +7,8 @@
 
 namespace space_shooter::ecs {
 
+    // Entity for switching scenes
+
     WaitKeyEntity::WaitKeyEntity(KeySceneComponent::KeyEnum key, GameState::Scene scene, bool keepEntities) {
         add<KeySceneComponent>(key, scene, keepEntities);
         add<InputComponent>();

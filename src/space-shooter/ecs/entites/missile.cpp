@@ -11,7 +11,7 @@ namespace space_shooter::ecs {
 MissileEntity::MissileEntity(sf::Vector2f pos, sf::Vector2f velocity, int radius, sf::Color color, EntityTag tag) {
 
     add<PositionComponent>(pos.x, pos.y);
-    add<SpriteComponent>(radius * 2, radius * 2, SpriteComponent::Resize::None, true);
+    add<SpriteComponent>(radius * 2, radius * 2, SpriteComponent::Resize::None, SpriteComponent::OOBAction::RemoveInvisible);
     add<ShapeComponent>(ShapeComponent::ShapeType::Circle, (float)radius, color);
     add<VelocityComponent>(velocity.x, velocity.y);
     add<TagComponent>(tag);

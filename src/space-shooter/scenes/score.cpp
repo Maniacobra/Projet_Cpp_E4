@@ -4,6 +4,8 @@
 
 namespace space_shooter {
 
+	// This scene acts either as a "you win" or "game over" scene
+
 void initScore(space_shooter::ecs::Manager& manager, bool win) {
 
 	auto score = manager.getFromEntity<ecs::ScoreEntity>(

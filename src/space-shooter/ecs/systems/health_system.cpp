@@ -26,9 +26,9 @@ namespace space_shooter::ecs {
             ColliderComponent& col     = e->get<ColliderComponent>();
             HealthComponent&   health  = e->get<HealthComponent>();
             TagComponent& tag          = e->get<TagComponent>();
-            health.health              = fmax(0, health.health - fmin(col.hit, col.maxHitInOneFrame));
+            health.health              = fmax(0, health.health - fmin(col.hit, col.maxHitInOneFrame)); // Decreases health
 
-            if (health.health <= 0) {
+            if (health.health == 0) { // Entity dies
                 e->kill();
 
                 switch (tag.type)
